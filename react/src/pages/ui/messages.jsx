@@ -4,7 +4,7 @@ import './ui.less'
 export default class Buttons extends React.Component {
 
     showMessage = (type)=>{
-        message[type]("恭喜你，React课程晋级成功");
+        message[type]("恭喜你，学习React成功");
     }
 
     render(){

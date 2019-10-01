@@ -52,7 +52,7 @@ export default class Buttons extends React.Component {
                         })
                     }}
                 >
-                    <p>欢迎学习慕课新推出的React高级课程</p>
+                    <p>点击cancel关闭-visible属性控制</p>
                 </Modal>
                 <Modal
                     title="React"
@@ -65,7 +65,7 @@ export default class Buttons extends React.Component {
                         })
                     }}
                 >
-                    <p>欢迎学习慕课新推出的React高级课程</p>
+                    <p>okText和cancelText来自定义页脚</p>
                 </Modal>
                 <Modal
                     title="React"
@@ -89,7 +89,7 @@ export default class Buttons extends React.Component {
                         })
                     }}
                 >
-                    <p>欢迎学习慕课新推出的React高级课程</p>
+                    <p>centered属性</p>
                 </Modal>
             </div>
         );

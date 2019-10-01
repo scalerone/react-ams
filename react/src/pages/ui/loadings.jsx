@@ -17,14 +17,14 @@ export default class Loadings extends React.Component{
                 <Card title="内容遮罩" className="card-wrap">
                     <Alert
                         message="React"
-                        description="欢迎来到React高级实战课程"
+                        description="学习React"
                         type="info"
                         style={{ marginBottom: 10 }}
                     />
                     <Spin>
                         <Alert
                             message="React"
-                            description="欢迎来到React高级实战课程"
+                            description="学习React"
                             type="warning"
                             style={{ marginBottom: 10 }}
                         />
@@ -32,7 +32,7 @@ export default class Loadings extends React.Component{
                     <Spin tip="加载中...">
                         <Alert
                             message="React"
-                            description="欢迎来到React高级实战课程"
+                            description="学习React"
                             type="warning"
                             style={{ marginBottom: 10 }}
                         />
@@ -40,7 +40,7 @@ export default class Loadings extends React.Component{
                     <Spin indicator={iconLoading}>
                         <Alert
                             message="React"
-                            description="欢迎来到React高级实战课程"
+                            description="学习React"
                             type="warning"
                         />
                     </Spin>
