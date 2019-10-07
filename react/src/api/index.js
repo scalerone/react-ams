@@ -102,7 +102,7 @@ export const reqWeather = (city) => {
     })
   })
 }
-// reqWeather('北京')
+// reqWeather('成都')
 /*
 jsonp解决ajax跨域的原理
   1). jsonp只能解决GET类型的ajax请求跨域问题

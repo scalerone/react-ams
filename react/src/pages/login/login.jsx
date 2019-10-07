@@ -107,7 +107,7 @@ class Login extends Component {
       <div className="login">
         <header className="login-header">
           <img src={logo} alt="logo"/>
-          <h1>安全运维管理系统</h1>
+          <h1>资产管理系统</h1>
         </header>
         <section className="login-content">
           <h2>用户登录</h2>
@@ -147,7 +147,8 @@ class Login extends Component {
                     {
                       validator: this.validatePwd
                     }
-                  ]
+                  ],
+                  initialValue: 'admin', // 初始值
                 })(
                   <Input
                     prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
