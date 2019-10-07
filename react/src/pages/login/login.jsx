@@ -7,6 +7,9 @@ import {
   Button,
   message
 } from 'antd'
+import {connect} from 'react-redux'
+import {login} from '../../redux/actions'
+
 import './login.less'
 import logo from '../../assets/images/logo.png'
 import {reqLogin} from '../../api'
@@ -34,24 +37,27 @@ class Login extends Component {
         // console.log('提交登陆的ajax请求', values)
         // 请求登陆
         const {username, password} = values
-        const result = await reqLogin(username, password) // {status: 0, data: user}  {status: 1, msg: 'xxx'}
-        // console.log('请求成功', result)
-        if (result.status===0) { // 登陆成功
-          // 提示登陆成功
-          message.success('登陆成功')
+        // const result = await reqLogin(username, password) // {status: 0, data: user}  {status: 1, msg: 'xxx'}
+        // // console.log('请求成功', result)
+        // if (result.status===0) { // 登陆成功
+        //   // 提示登陆成功
+        //   message.success('登陆成功')
+        //
+        //   // 保存user
+        //   const user = result.data
+        //   memoryUtils.user = user // 保存在内存中
+        //   storageUtils.saveUser(user) // 保存到local中
+        //
+        //   // 跳转到管理界面 (不需要再回退回到登陆)
+        //   this.props.history.replace('/')
+        //
+        // } else { // 登陆失败
+        //   // 提示错误信息
+        //   message.error(result.msg)
+        // }
 
-          // 保存user
-          const user = result.data
-          memoryUtils.user = user // 保存在内存中
-          storageUtils.saveUser(user) // 保存到local中
-
-          // 跳转到管理界面 (不需要再回退回到登陆)
-          this.props.history.replace('/')
-
-        } else { // 登陆失败
-          // 提示错误信息
-          message.error(result.msg)
-        }
+        // 调用分发异步action的函数 => 发登陆的异步请求, 有了结果后更新状态
+        this.props.login(username, password)
 
       } else {
         console.log('检验失败!')
@@ -62,7 +68,7 @@ class Login extends Component {
     // const form = this.props.form
     // // 获取表单项的输入数据
     // const values = form.getFieldsValue()
-
+    // console.log('handleSubmit()', values)
   }
 
   /*
@@ -94,9 +100,9 @@ class Login extends Component {
   render () {
 
     // 如果用户已经登陆, 自动跳转到管理界面
-    const user = memoryUtils.user
+    const user = this.props.user
     if(user && user._id) {
-      return <Redirect to='/'/>
+      return <Redirect to='/home'/>
     }
 
     // 得到具强大功能的form对象
@@ -110,6 +116,7 @@ class Login extends Component {
           <h1>资产管理系统</h1>
         </header>
         <section className="login-content">
+          <div className={user.errorMsg ? 'error-msg show' : 'error-msg'}>{user.errorMsg}</div>
           <h2>用户登录</h2>
           <Form onSubmit={this.handleSubmit} className="login-form">
             <Item>
@@ -177,4 +184,19 @@ class Login extends Component {
 新组件会向Form组件传递一个对象属性: form
  */
 const WrapLogin = Form.create()(Login)
-export default WrapLogin
+export default connect(
+  state => ({user: state.user}),
+  {login}
+)(WrapLogin)
+
+
+/*
+async和await
+1. 作用?
+   简化promise对象的使用: 不用再使用then()来指定成功/失败的回调函数
+   以同步编码(没有回调函数了)方式实现异步流程
+2. 哪里写await?
+    在返回promise的表达式左侧写await: 不想要promise, 想要promise异步执行的成功的value数据
+3. 哪里写async?
+    await所在函数(最近的)定义的左侧写async
+ */
