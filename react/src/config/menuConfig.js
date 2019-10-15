@@ -72,6 +72,28 @@ const menuList = [
       },
     ]
   },
+  {
+    title: '图形图表',
+    key: '/charts',
+    icon: 'area-chart',
+    children: [
+      {
+        title: '柱形图',
+        key: '/charts/bar',
+        icon: 'bar-chart'
+      },
+      {
+        title: '折线图',
+        key: '/charts/line',
+        icon: 'line-chart'
+      },
+      {
+        title: '饼图',
+        key: '/charts/pie',
+        icon: 'pie-chart'
+      },
+    ]
+  }
 
 ]
 
