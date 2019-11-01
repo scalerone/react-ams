@@ -28,7 +28,7 @@ export default class Bar extends Component {
   getOption = (sales, stores) => {
     return {
       title: {
-        text: 'ECharts 入门示例'
+        text: 'ECharts 入门销量图'
       },
       tooltip: {},
       legend: {
