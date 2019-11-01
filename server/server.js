@@ -22,9 +22,10 @@ const indexRouter = require('./routers')
 app.use('/', indexRouter)  //
 
 const fs = require('fs')
-
-// 必须在路由器中间之后声明使用
-/*app.use((req, res) => {
+//使用 BrowserRouter刷新某个路由路径时, 会出现 404 的错误
+//使用自定义中间件去读取返回 index 页面展现
+// 必须在路由器中间之后声明使用 -跟vue-router配置history模式差不多
+app.use((req, res) => {
   fs.readFile(__dirname + '/public/index.html', (err, data)=>{
     if(err){
       console.log(err)
@@ -36,7 +37,7 @@ const fs = require('fs')
       res.end(data)
     }
   })
-})*/
+})
 
 // 通过mongoose连接数据库
 mongoose.connect('mongodb://localhost/admin_db', {useNewUrlParser: true})
