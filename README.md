@@ -212,6 +212,8 @@ yarn build or npm run build
 项目是断断续续写的，把工作中的东西抽出来一些应用实践，只有下班和周末有时间，后续会慢慢完善和优化.
 
 
+### 其他个人项目
 
+[基于nodejs+vuecli3+element-ui构建的后台管理系统](https://github.com/scalerone/node-vue-ele-admin)
 
 觉得不错的给个star鼓励支持！^_^
